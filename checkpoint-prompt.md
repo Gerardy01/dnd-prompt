@@ -4,7 +4,7 @@ Kita akan melakukan migrasi ke sesi baru (New Chat) untuk menyegarkan memori. Sa
 
 **ATURAN PENTING:**
 1.  **JANGAN** sertakan data statistik karakter saya (HP, Spell Slot, Inventory Personal, XP) karena saya melacaknya sendiri.
-2.  **SERTAKAN** status fisik Companion/Sidekick karena mereka bagian dari narasi dunia.
+2.  **SERTAKAN** data statistik LENGKAP Companion/Sidekick (HP, AC, Skill) karena AI di sesi baru butuh data ini untuk simulasi combat.
 3.  FOKUS sepenuhnya pada **Lingkungan, Narasi, Peta, Companion, dan NPC**.
 
 Tolong output data berikut dalam satu **Code Block** agar mudah saya copy:
@@ -24,10 +24,16 @@ Tolong output data berikut dalam satu **Code Block** agar mudah saya copy:
 (Generate ulang Peta ASCII kondisi DETIK INI juga. Pastikan posisi Player [@], Companion [C], Musuh [E], dan Objek [O] akurat sesuai langkah terakhir).
 (Sertakan Legenda Simbol).
 
-**4. Companion & Sidekick Status:**
-(Jika tidak ada, tulis "None").
-- **Name:** (Nama Companion).
-- **Condition:** (HP Saat Ini / Status Fisik: Sehat/Luka Parah/Pingsan).
+**4. Companion / Sidekick Data (CRITICAL):**
+(Ulangi blok ini jika ada lebih dari 1 companion. Jika tidak ada, tulis "None").
+- **Name:**
+- **Race/Class:**
+- **HP:** (Current/Max)
+- **AC:**
+- **Primary Weapon/Attack:** (Contoh: Shortbow +4 hit, 1d6+2 dmg)
+- **Key Skills:** (Contoh: Stealth, Survival)
+- **Personality/Tactics:** (Contoh: Suka menyerang jarak jauh, penakut, atau agresif).
+- **Current Condition:** (Posisi terakhir & status fisik).
 - **Current Activity:** (Apa yang sedang mereka lakukan saat sesi berhenti? Contoh: Menjaga pintu, Berlindung, Menyiapkan mantra).
 
 **5. Entity & Object Status:**
