@@ -1,50 +1,99 @@
-[SYSTEM INSTRUCTION: SAVE GAME SEQUENCE]
+***[SYSTEM INSTRUCTION: GAME STATE SERIALIZATION & MERGE]***
 
-Kita akan melakukan migrasi ke sesi baru (New Chat) untuk menyegarkan memori. Saya butuh kamu men-generate **"WORLD STATE CHECKPOINT"**.
+Kita akan mengakhiri sesi ini. Tugasmu adalah melakukan **State Persistence** ke dalam format JSON agar game bisa dilanjutkan di sesi baru atau model AI lain.
 
-**ATURAN PENTING:**
-1.  **JANGAN** sertakan data statistik karakter saya (HP, Spell Slot, Inventory Personal, XP) karena saya melacaknya sendiri.
-2.  **SERTAKAN** data statistik LENGKAP Companion/Sidekick (HP, AC, Skill) karena AI di sesi baru butuh data ini untuk simulasi combat.
-3.  FOKUS sepenuhnya pada **Lingkungan, Narasi, Peta, Companion, dan NPC**.
+**ATURAN UTAMA GENERASI DATA:**
+1.  **MERGE & UPDATE:** Jika user memberikan JSON lama, gabungkan dengan kejadian sesi ini.
+    * *NPC:* Jika bertemu NPC yang sudah ada di list, update status/lokasinya. Jangan buat duplikat.
+    * *Quests:* Pindahkan quest yang selesai ke `completed_log` dan **RINGKAS** deskripsinya untuk hemat memori.
+2.  **PEMISAHAN DATA:** Jangan masukkan Stat Block/Inventory Player (User memegang data itu sendiri). Fokus pada Dunia, NPC, dan Story.
+3.  **OUTPUT:** Hanya berikan **SATU BLOK JSON** valid. Tanpa teks pengantar.
 
-Tolong output data berikut dalam satu **Code Block** agar mudah saya copy:
+**KONDISI A: JIKA ADA SAVE DATA LAMA (Update Mode)**
+Jangan buat JSON dari nol! Gunakan JSON lama sebagai basis, lalu lakukan **PATCHING**:
+1.  **Overwrite (Timpa):** Update field yang dinamis seperti `current_location`, `time`, `hp`, `active_encounter`, dan `tactical_map_ascii` dengan kondisi TERAKHIR saat ini.
+2.  **Append (Tambah):** Masukkan item/quest/NPC *baru* yang ditemui sesi ini ke dalam list yang sudah ada.
+3.  **Preserve (Pertahankan):** JANGAN HAPUS data lama (NPC masa lalu, Quest yang sudah selesai di sesi lampau) meskipun tidak dibahas di sesi ini. Biarkan mereka tetap ada di memori JSON.
+
+**KONDISI B: JIKA NEW GAME (Create Mode)**
+Buat JSON baru dari nol menggunakan template standar di bawah.
 
 ---
-**[WORLD STATE DATA]**
 
-**1. Narrative Recap:**
-(Ringkasan singkat kejadian terakhir dalam 1-2 kalimat).
+**INSTRUKSI FORMATTING:**
+1.  Pastikan `tactical_map_ascii` adalah snapshot posisi grid terakhir (gunakan `\n` untuk baris baru).
+2.  Pastikan `active_encounter` diisi detail jika combat belum selesai.
+3.  Output **HANYA** JSON valid.
 
-**2. Current Location & Atmosphere:**
-- **Zone Name:** (Nama Area/Ruangan)
-- **Sensory Details:** (Apa yang terlihat, terdengar, dan tercium saat ini. *Penting untuk Theater of the Mind di sesi baru*).
-- **Lighting:** (Terang/Redup/Gelap).
-
-**3. Tactical Map State:**
-(Generate ulang Peta ASCII kondisi DETIK INI juga. Pastikan posisi Player [@], Companion [C], Musuh [E], dan Objek [O] akurat sesuai langkah terakhir).
-(Sertakan Legenda Simbol).
-
-**4. Companion / Sidekick Data (CRITICAL):**
-(Ulangi blok ini jika ada lebih dari 1 companion. Jika tidak ada, tulis "None").
-- **Name:**
-- **Race/Class:**
-- **HP:** (Current/Max)
-- **AC:**
-- **Primary Weapon/Attack:** (Contoh: Shortbow +4 hit, 1d6+2 dmg)
-- **Key Skills:** (Contoh: Stealth, Survival)
-- **Personality/Tactics:** (Contoh: Suka menyerang jarak jauh, penakut, atau agresif).
-- **Current Condition:** (Posisi terakhir & status fisik).
-- **Current Activity:** (Apa yang sedang mereka lakukan saat sesi berhenti? Contoh: Menjaga pintu, Berlindung, Menyiapkan mantra).
-
-**5. Entity & Object Status:**
-- **NPC/Enemy:** Daftar siapa saja yang masih hidup/aktif di area ini & kondisi mereka (Luka Parah/Sehat).
-- **Interactive Objects:** Pintu (terbuka/kunci?), Peti (sudah dijarah?), Jebakan (aktif/nonaktif?).
-
-**6. Active Quest/Objective:**
-- Apa tujuan terdekat (Immediate Goal) saat ini?
-
-**7. Unclaimed Loot:**
-- Daftar item yang masih tergeletak di tanah/ruangan yang BELUM saya masukkan ke inventory (jika ada).
-
-**[END OF WORLD DATA]**
----
+**TEMPLATE STRUKTUR JSON (Gunakan ini sebagai acuan struktur):**
+```json
+{
+    "header": {
+        "timestamp": "End of Session [Nomor Sesi]",
+        "session_summary": "[1 kalimat rangkuman sesi ini]"
+    },
+    "campaign_status": {
+        "module_name": "[Nama Modul/Dunia]",
+        "ruleset": "D&D 5e",
+        "narrative_tone": "[Tone cerita saat ini]",
+        "players": ["[Nama Karakter]"],
+        "time_management": {
+            "in_game_date": "[Hari, Bulan, Tahun]",
+            "time_of_day": "[Pagi/Siang/Sore/Malam]",
+            "last_rest_status": "[Kapan terakhir Long Rest?]"
+        }
+    },
+    "companions_data": [
+        // HANYA diisi jika ada Companion/Follower/Pet yang aktif bersama party.
+        // {
+        //   "name": "[Nama Companion]",
+        //   "race_class": "[e.g., Human Paladin]",
+        //   "hp": "[Health]",
+        //   "ac": "[Armor Class]",
+        //   "weapon": "[e.g., Shortbow]",
+        //   "key_skills": "[e.g., Stealth, Survival]",
+        //   "personality": "[e.g., Suka menyerang jarak jauh, penakut, atau agresif]",
+        //   "current_condition": "[Posisi terakhir & status fisik]",
+        //   "current_activity": "[Apa yang sedang mereka lakukan saat sesi berhenti]"
+        // }
+    ],
+    "quest_log": {
+        "main_objective": "[Tujuan utama campaign/journey]",
+        "active_side_quests": [
+            "[Quest 1 yang masih aktif]",
+            "[Quest 2 yang masih aktif]"
+        ],
+        "completed_quests": [
+            "[Quest yang diselesaikan di sesi INI]"
+        ]
+    },
+    "world_memory": {
+        "known_npcs": [
+            {
+                "name": "[Nama NPC]",
+                "role": "[Pekerjaan/Peran, e.g., Bartender, Blacksmith, Bandit Chief]",
+                "attitude": "[Friendly/Neutral/Hostile/Unknown]",
+                "status": "[Alive/Dead/Missing/Transformed]",
+                "last_known_location": "[Kota/Dungeon/Tempat]"
+            }
+        ],
+        "key_events": [
+            "[Rangkuman singkat kejadian penting Sesi TERAKHIR ini, 1-3 poin]"
+        ],
+        "discovered_secrets": [
+            "[List rahasia/clue yang sudah diketahui player tapi belum terselesaikan]"
+        ]
+    },
+    "current_session_state": {
+        "location_name": "[Lokasi Spesifik]",
+        "sensory_details": "[Deskripsi visual, suara, bau]",
+        "tactical_map_ascii": "[STRING PETA ASCII DISINI]"
+    },
+    "party_assets": [
+        // HANYA diisi jika ada barang yang termasuk ke party assets, dan bukan di dalam Inventory Player.
+        // {
+        //     "name": "[Nama]",
+        //     "description": "[Deskripsi]"
+        // }
+    ]
+}
