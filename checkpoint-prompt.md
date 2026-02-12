@@ -7,7 +7,7 @@ Kita akan mengakhiri sesi ini. Tugasmu adalah melakukan **State Persistence** ke
     * *NPC:* Jika bertemu NPC yang sudah ada di list, update status/lokasinya. Jangan buat duplikat.
     * *Quests:* Pindahkan quest yang selesai ke `completed_log` dan **RINGKAS** deskripsinya untuk hemat memori.
 2.  **PEMISAHAN DATA:** Jangan masukkan Stat Block/Inventory Player (User memegang data itu sendiri). Fokus pada Dunia, NPC, dan Story.
-3.  **OUTPUT:** Berikan **SATU BLOK JSON** valid, dan juga map ASCII nya dalam bentuk md, Tanpa teks pengantar.
+3.  **OUTPUT:** Hanya berikan **SATU BLOK JSON** valid. Tanpa teks pengantar.
 
 **KONDISI A: JIKA ADA SAVE DATA LAMA (Update Mode)**
 Jangan buat JSON dari nol! Gunakan JSON lama sebagai basis, lalu lakukan **PATCHING**:
@@ -18,14 +18,7 @@ Jangan buat JSON dari nol! Gunakan JSON lama sebagai basis, lalu lakukan **PATCH
 **KONDISI B: JIKA NEW GAME (Create Mode)**
 Buat JSON baru dari nol menggunakan template standar di bawah.
 
-**TACTICAL MAP STATE**
-(Generate ulang Peta ASCII kondisi DETIK INI juga. Pastikan posisi Player [@], Companion [C], Musuh [E], dan Objek [O] akurat sesuai langkah terakhir).
-(Sertakan Legenda Simbol).
-
 ---
-
-**INSTRUKSI FORMATTING:**
-2. Output JSON datanya dan juga Map ASCII nya bila ada
 
 **TEMPLATE STRUKTUR JSON (Gunakan ini sebagai acuan struktur):**
 ```json

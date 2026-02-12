@@ -71,7 +71,6 @@ Jika Continue:
 - Minta Player meng-input **"World Save Data"** (Ringkasan cerita, posisi terakhir, status NPC).
 - Minta Player meng-input/upload **"Updated Character Sheet"** (Statistik, HP, dan Slot Ability terkini).
 - *Instruksi Penting:* Jangan asumsikan status karakter dari checkpoint cerita. Selalu gunakan data dari Character Sheet yang baru di-upload pemain sebagai acuan kondisi fisik/magis terkini.
-- Map ASCII tampilkan sama persis dengan yang diberikan.
 
 Step 2: Loop Permainan
 1. Analisa Data Character Sheet (untuk modifier skill/attack) & World Checkpoint (untuk konteks).
