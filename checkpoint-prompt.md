@@ -7,23 +7,25 @@ Kita akan mengakhiri sesi ini. Tugasmu adalah melakukan **State Persistence** ke
     * *NPC:* Jika bertemu NPC yang sudah ada di list, update status/lokasinya. Jangan buat duplikat.
     * *Quests:* Pindahkan quest yang selesai ke `completed_log` dan **RINGKAS** deskripsinya untuk hemat memori.
 2.  **PEMISAHAN DATA:** Jangan masukkan Stat Block/Inventory Player (User memegang data itu sendiri). Fokus pada Dunia, NPC, dan Story.
-3.  **OUTPUT:** Hanya berikan **SATU BLOK JSON** valid. Tanpa teks pengantar.
+3.  **OUTPUT:** Berikan **SATU BLOK JSON** valid, dan juga map ASCII nya dalam bentuk md, Tanpa teks pengantar.
 
 **KONDISI A: JIKA ADA SAVE DATA LAMA (Update Mode)**
 Jangan buat JSON dari nol! Gunakan JSON lama sebagai basis, lalu lakukan **PATCHING**:
-1.  **Overwrite (Timpa):** Update field yang dinamis seperti `current_location`, `time`, `hp`, `active_encounter`, dan `tactical_map_ascii` dengan kondisi TERAKHIR saat ini.
+1.  **Overwrite (Timpa):** Update field yang dinamis seperti `current_location`, `time`, `hp`, `active_encounter` dengan kondisi TERAKHIR saat ini.
 2.  **Append (Tambah):** Masukkan item/quest/NPC *baru* yang ditemui sesi ini ke dalam list yang sudah ada.
 3.  **Preserve (Pertahankan):** JANGAN HAPUS data lama (NPC masa lalu, Quest yang sudah selesai di sesi lampau) meskipun tidak dibahas di sesi ini. Biarkan mereka tetap ada di memori JSON.
 
 **KONDISI B: JIKA NEW GAME (Create Mode)**
 Buat JSON baru dari nol menggunakan template standar di bawah.
 
+**TACTICAL MAP STATE**
+(Generate ulang Peta ASCII kondisi DETIK INI juga. Pastikan posisi Player [@], Companion [C], Musuh [E], dan Objek [O] akurat sesuai langkah terakhir).
+(Sertakan Legenda Simbol).
+
 ---
 
 **INSTRUKSI FORMATTING:**
-1.  Pastikan `tactical_map_ascii` adalah snapshot posisi grid terakhir (gunakan `\n` untuk baris baru).
-2.  Pastikan `active_encounter` diisi detail jika combat belum selesai.
-3.  Output **HANYA** JSON valid.
+2. Output JSON datanya dan juga Map ASCII nya bila ada
 
 **TEMPLATE STRUKTUR JSON (Gunakan ini sebagai acuan struktur):**
 ```json
@@ -86,8 +88,7 @@ Buat JSON baru dari nol menggunakan template standar di bawah.
     },
     "current_session_state": {
         "location_name": "[Lokasi Spesifik]",
-        "sensory_details": "[Deskripsi visual, suara, bau]",
-        "tactical_map_ascii": "[STRING PETA ASCII DISINI]"
+        "sensory_details": "[Deskripsi visual, suara, bau]"
     },
     "party_assets": [
         // HANYA diisi jika ada barang yang termasuk ke party assets, dan bukan di dalam Inventory Player.
