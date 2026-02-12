@@ -1,72 +1,111 @@
 {
-    "module" : "Lost Mine of Phandelver (D&D 5e Starter Set)",
-    "session_status": "Morning at Phandalin (After Long Rest)",
-    "details" : {
-        "playerCount" : 1,
-        "difficulty": "Normal",
-        "narrativeTone": "Tactical/Immersive"
+    "header": {
+        "timestamp": "End of Session 2 - Phandalin Secrets",
+        "session_summary": "Omnissiah berhasil menginterogasi Harbin Wester, mengungkap identitas asli Glasstaff sebagai Iarno Albrek, dan kini berada di ambang pintu rahasia Tresendar Manor."
     },
-    "companion" : [
+    "campaign_status": {
+        "module_name": "Lost Mine of Phandelver",
+        "ruleset": "D&D 5e",
+        "narrative_tone": "Tactical/Immersive",
+        "players": [
+            "Omnissiah"
+        ],
+        "time_management": {
+            "in_game_date": "Hari ke-2",
+            "time_of_day": "Menjelang Siang",
+            "last_rest_status": "Long Rest di Stonehill Inn (Mencapai Level 2)"
+        }
+    },
+    "companions_data": [
         {
             "name": "Kaelen",
-            "race" : "human",
-            "class" : "Scout",
-            "hp" : "11/11",
-            "ac" : 13,
-            "gender" : "male",
-            "description" : "Kaelen adalah seorang pemburu lokal yang disewa oleh Gundern untuk membantu navigasi dan menjaga kereta. Ia menggunakan Leather Armor dan bersenjatakan Shortbow serta Shortsword. kaelen lebih suka menyuerang dari jarak jauh.",
-            "skills" : ["Stealth", "Survival"],
-            "lastCondition": "Segar bugar setelah istirahat. Siaga di halaman penginapan bersama kereta."
+            "race_class": "Human Scout",
+            "hp": "11/11",
+            "ac": "13",
+            "weapon": "Shortbow & Shortsword",
+            "key_skills": "Stealth, Survival",
+            "personality": "Taktis, lebih suka jarak jauh, kini sangat kagum dengan diplomasi Omnissiah.",
+            "current_condition": "Siaga (Ready)",
+            "current_activity": "Menjaga garis belakang di pintu masuk terowongan rahasia."
         },
         {
             "name": "Sildar Hallwinter",
-            "race" : "human",
-            "class" : "?",
-            "hp" : "?",
-            "ac" : "?",
-            "gender" : "male",
-            "description": "Ksatria manusia dari Lords' Alliance. Sangat lemah setelah disiksa Yeemik. Berhutang budi pada Omnissiah.",
-            "skills" : ["?"],
-            "lastCondition" : "Recovering / Conscious. Berada di ruang utama, menawarkan misi mencari Iarno Albrek."
+            "race_class": "Human Fighter/Knight",
+            "hp": "10/27",
+            "ac": "10",
+            "weapon": "Dagger",
+            "key_skills": "History, Persuasion",
+            "personality": "Loyal pada Lords' Alliance.",
+            "current_condition": "Pemulihan",
+            "current_activity": "Beristirahat di Stonehill Inn menunggu laporan tentang Iarno Albrek."
         }
     ],
-    "currentQuestProgress" : {
-        "mission": "Mencari Gundren Rockseeker di Cragmaw Castle, mengungkap 'The Black Spider', dan mencari Iarno Albrek.",
-        "completedSteps": [
-            "Menyelidiki lokasi penyergapan kuda Gundren",
-            "Menyerbu Cragmaw Hideout",
-            "Membunuh Klarg sang Bugbear dan serigala Ripper",
-            "Menyelamatkan Sildar Hallwinter melalui intimidasi terhadap Yeemik",
-            "Kembali ke Phandalin membawa kereta dan barang jarahan",
-            "Melakukan Long Rest di Stonehill Inn (Mencapai Level 2)"
+    "quest_log": {
+        "main_objective": "Menemukan Gundren Rockseeker & Menghentikan The Black Spider.",
+        "active_side_quests": [
+            "Menyerbu Markas Redbrands di Tresendar Manor",
+            "Menangkap/Menghadapi Iarno Albrek (Glasstaff)",
+            "Mencari Lokasi Cragmaw Castle",
+            "Membersihkan Orc di Wyvern Tor (Bounty dari Harbin Wester)",
+            "Investigasi Old Owl Well (Tugas dari Daran Edermath)"
         ],
-        "activeClues": [
-            "Gundren dibawa ke 'Cragmaw Castle' atas perintah King Grol",
-            "Sosok 'The Black Spider' (seorang Drow) menginginkan peta milik Gundren",
-            "Iarno Albrek (rekan Sildar) menghilang di Phandalin",
-            "Peti Lionshield Coster harus dikembalikan ke pemiliknya di kota",
-            "Daran Edermath (kebun apel) tahu soal Redbrands & Old Owl Well",
-            "Carp Alderleaf (anak Qelline) menemukan jalan rahasia ke Tresendar Manor",
-            "Halia Thornton (Miner's Exchange) memiliki informasi/tugas tambahan",
-            "Misi Sildar: Temukan Iarno Albrek (Imbalan 50 GP)"
+        "completed_quests": [
+            "Mengembalikan kargo Lionshield Coster",
+            "Menyerahkan suplai Barthen's Provisions",
+            "Konfrontasi Harbin Wester (Mendapatkan pengakuan & 100 GP)",
+            "Penyelamatan Sildar Hallwinter"
+        ]
+    },
+    "world_memory": {
+        "known_npcs": [
+            {
+                "name": "Harbin Wester",
+                "role": "Townmaster Phandalin",
+                "attitude": "Friendly (Cooperative/Fearful)",
+                "status": "Alive",
+                "last_known_location": "Townmaster's Hall"
+            },
+            {
+                "name": "Iarno Albrek (Glasstaff)",
+                "role": "Leader of Redbrands / Ex-Lords' Alliance",
+                "attitude": "Hostile",
+                "status": "Alive / Missing",
+                "last_known_location": "Tresendar Manor (Basement)"
+            },
+            {
+                "name": "Linene Graywind",
+                "role": "Lionshield Coster Manager",
+                "attitude": "Friendly",
+                "status": "Alive",
+                "last_known_location": "Lionshield Coster, Phandalin"
+            },
+            {
+                "name": "Daran Edermath",
+                "role": "Retired Adventurer / Orchard Owner",
+                "attitude": "Friendly",
+                "status": "Alive",
+                "last_known_location": "Edermath Orchard"
+            }
         ],
-        "lastAction": "Selesai sarapan dan berbicara dengan Sildar Hallwinter di pagi hari. Siap menjelajahi Phandalin."
+        "key_events": [
+            "Omnissiah menemukan surat rahasia berinisial 'G' di meja Townmaster.",
+            "Harbin Wester mengaku ditekan oleh Glasstaff dan memberikan uang muka 100 GP untuk membasmi Redbrands.",
+            "Identitas Glasstaff terkonfirmasi sebagai Iarno Albrek yang berkhianat.",
+            "Party tiba di pintu rahasia di bawah bukit Tresendar Manor."
+        ],
+        "discovered_secrets": [
+            "Iarno Albrek menggunakan tongkat kaca (Glass Staff) sebagai simbol kekuasaan.",
+            "Ada jalur rahasia langsung dari luar kota menuju basement Manor melalui celah bukit."
+        ]
     },
-    "area" : {
-        "location": "Stonehill Inn, Phandalin",
-        "environmentNotes": "Pagi hari yang cerah. Kota mulai beraktivitas namun tensi terhadap Redbrands masih terasa.",
-        "positioning": "Omnissiah, Kaelen, dan Sildar di ruang utama. Kereta lembu di halaman penginapan."
+    "current_session_state": {
+        "location_name": "Celah Bukit Timur - Pintu Rahasia Tresendar Manor",
+        "sensory_details": "Udara dingin mengalir keluar dari celah batu. Bau tanah lembap dan asap kayu samar tercium dari dalam kegelapan terowongan."
     },
-    "partyAssets" : [
+    "party_assets": [
         {
-            "name": "Lionshield Coster Supplies (stored in wagon)",
-            "weight": 10,
-            "description": "A crate of recovered supplies marked with the blue lion. Returning this to Phandalin might earn a reward."
-        },
-        {
-            "name": "Extra Goblin Loot Sacks (stored in wagon)",
-            "weight": 20,
-            "description": "Assorted mundane goods."
+            "name": "Oxen Cart (Kereta Lembu)",
+            "description": "Kendaraan logistik diparkir dengan aman di Phandalin."
         }
     ]
 }
