@@ -1,0 +1,413 @@
+{
+    "charInfo": {
+        "characterName": "Kaelen Thorne",
+        "classesAndLevel": "Fighter 1",
+        "species": "Human",
+        "background": "Soldier",
+        "alignment": "Neutral Good",
+        "experiencePoints": "0"
+    },
+    "infoStat": {
+        "proficiencyBonus": 2,
+        "heroicInspiration": false
+    },
+    "characterDetails": {
+        "appearance": {
+            "gender": "Male",
+            "age": "28",
+            "height": "185 cm",
+            "weight": "85 kg",
+            "size": "Medium",
+            "hair": "Brown",
+            "eyes": "Hazel",
+            "skin": "Tan",
+            "faith": "Torm"
+        },
+        "personality": {
+            "traits": "I'm always polite and respectful. I've lost too many friends, and I'm slow to make new ones.",
+            "ideals": "Responsibility. I do what I must and obey just authority.",
+            "bonds": "Those who fight beside me are those worth dying for.",
+            "flaws": "I have little respect for anyone who is not a proven warrior."
+        },
+        "alliesAndOrganizations": "The Shield-Meet Mercenaries",
+        "backstory": "Kaelen was a foot soldier in a local lord's army. After his company was decimated in a border skirmish, he decided to take his skills to the road, seeking honor and a cause worth fighting for.",
+        "additionalNotes": ""
+    },
+    "ability": {
+        "strength": {
+            "score": 16,
+            "modifier": 3
+        },
+        "dexterity": {
+            "score": 14,
+            "modifier": 2
+        },
+        "constitution": {
+            "score": 14,
+            "modifier": 2
+        },
+        "intelligence": {
+            "score": 10,
+            "modifier": 0
+        },
+        "wisdom": {
+            "score": 12,
+            "modifier": 1
+        },
+        "charisma": {
+            "score": 9,
+            "modifier": -1
+        }
+    },
+    "savings": {
+        "strength": {
+            "modifier": 5,
+            "proficient": true
+        },
+        "dexterity": {
+            "modifier": 2,
+            "proficient": false
+        },
+        "constitution": {
+            "modifier": 4,
+            "proficient": true
+        },
+        "intelligence": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "wisdom": {
+            "modifier": 1,
+            "proficient": false
+        },
+        "charisma": {
+            "modifier": -1,
+            "proficient": false
+        }
+    },
+    "skills": {
+        "acrobatics": {
+            "modifier": 2,
+            "proficient": false
+        },
+        "animalHandling": {
+            "modifier": 1,
+            "proficient": false
+        },
+        "arcana": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "athletics": {
+            "modifier": 5,
+            "proficient": true
+        },
+        "deception": {
+            "modifier": -1,
+            "proficient": false
+        },
+        "history": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "insight": {
+            "modifier": 1,
+            "proficient": false
+        },
+        "intimidation": {
+            "modifier": 1,
+            "proficient": true
+        },
+        "investigation": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "medicine": {
+            "modifier": 1,
+            "proficient": false
+        },
+        "nature": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "perception": {
+            "modifier": 3,
+            "proficient": true
+        },
+        "performance": {
+            "modifier": -1,
+            "proficient": false
+        },
+        "persuasion": {
+            "modifier": -1,
+            "proficient": false
+        },
+        "religion": {
+            "modifier": 0,
+            "proficient": false
+        },
+        "sleightOfHand": {
+            "modifier": 2,
+            "proficient": false
+        },
+        "stealth": {
+            "modifier": 2,
+            "proficient": false
+        },
+        "survival": {
+            "modifier": 3,
+            "proficient": true
+        }
+    },
+    "combat": {
+        "hitPoints": {
+            "max": 12,
+            "current": 12,
+            "temporary": 0
+        },
+        "speed": 30,
+        "armorClass": 18,
+        "initiative": 2,
+        "hitDice": [
+            {
+                "class": "Fighter",
+                "type": "d10",
+                "total": 1,
+                "remaining": 1
+            }
+        ]
+    },
+    "proficienciesAndTraining": {
+        "armor": [
+            "All Armor",
+            "Shields"
+        ],
+        "weapons": [
+            "Simple Weapons",
+            "Martial Weapons"
+        ],
+        "tools": [
+            "Playing card set",
+            "Vehicles (land)"
+        ],
+        "languages": [
+            "Common",
+            "Dwarvish"
+        ],
+        "other": []
+    },
+    "passiveScores": {
+        "perception": 13,
+        "insight": 11,
+        "investigation": 10
+    },
+    "featuresAndTraits": [
+        {
+            "name": "Fighting Style: Defense",
+            "description": "While you are wearing armor, you gain a $+1$ bonus to AC.",
+            "source": "Fighter",
+            "sourceType": "Class",
+            "actionType": ""
+        },
+        {
+            "name": "Second Wind",
+            "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to $1d10 + 1$.",
+            "source": "Fighter",
+            "sourceType": "Class",
+            "actionType": "bonusActions"
+        },
+        {
+            "name": "Military Rank",
+            "description": "You have a military rank from your career as a soldier.",
+            "source": "Soldier",
+            "sourceType": "Background",
+            "actionType": ""
+        }
+    ],
+    "extraSenses": [],
+    "defenses": [],
+    "equipment": {
+        "currency": {
+            "cp": 0,
+            "sp": 0,
+            "ep": 0,
+            "gp": 10,
+            "pp": 0
+        },
+        "items": [
+            {
+                "name": "Chain Mail",
+                "quantity": 1,
+                "weight": 55,
+                "equipable": true,
+                "description": "Heavy armor (AC 16). Disadvantage on Stealth.",
+                "actionType": "",
+                "equipped": true
+            },
+            {
+                "name": "Shield",
+                "quantity": 1,
+                "weight": 6,
+                "equipable": true,
+                "description": "Increases AC by $2$.",
+                "actionType": "",
+                "equipped": true
+            },
+            {
+                "name": "Longsword",
+                "quantity": 1,
+                "weight": 3,
+                "equipable": true,
+                "description": "Melee weapon. Deals $1d8$ (1-hand) or $1d10$ (2-hands) slashing damage.",
+                "actionType": "actions",
+                "equipped": true
+            },
+            {
+                "name": "Handaxe",
+                "quantity": 2,
+                "weight": 2,
+                "equipable": true,
+                "description": "Light, thrown weapon ($20/60$ ft). Deals $1d6$ slashing damage.",
+                "actionType": "actions",
+                "equipped": false
+            },
+            {
+                "name": "Explorer's Pack",
+                "quantity": 1,
+                "weight": 59,
+                "equipable": false,
+                "description": "Contains essential survival gear.",
+                "actionType": ""
+            }
+        ],
+        "attunedMagicItems": [],
+        "weightCapacity": 240,
+        "encumbered": false,
+        "pushDragLift": 480
+    },
+    "spells": [],
+    "otherResources": [
+        {
+            "name": "Second Wind",
+            "current": 1,
+            "max": 1,
+            "reset": "Short Rest",
+            "notes": ""
+        }
+    ],
+    "actionEconomy": {
+        "actions": [
+            {
+                "name": "Longsword",
+                "level": null,
+                "category": "Equipable",
+                "activation": {
+                    "type": "Attack",
+                    "bonus": 5,
+                    "dice": "1d8+3",
+                    "damageType": "Slashing"
+                },
+                "description": "Melee weapon attack",
+                "resource": ""
+            },
+            {
+                "name": "Handaxe (Melee)",
+                "level": null,
+                "category": "Equipable",
+                "activation": {
+                    "type": "Attack",
+                    "bonus": 5,
+                    "dice": "1d6+3",
+                    "damageType": "Slashing"
+                },
+                "description": "Melee weapon attack",
+                "resource": ""
+            },
+            {
+                "name": "Handaxe (Thrown)",
+                "level": null,
+                "category": "Equipable",
+                "activation": {
+                    "type": "Attack",
+                    "bonus": 5,
+                    "dice": "1d6+3",
+                    "damageType": "Slashing"
+                },
+                "description": "Ranged weapon attack (20/60 ft)",
+                "resource": ""
+            }
+        ],
+        "bonusActions": [
+            {
+                "name": "Second Wind",
+                "level": null,
+                "category": "Feature",
+                "activation": {
+                    "type": "Healing",
+                    "bonus": 0,
+                    "dice": "1d10+1",
+                    "damageType": ""
+                },
+                "description": "Regain HP",
+                "resource": "Second Wind"
+            }
+        ],
+        "reactions": [],
+        "isPopulated": true,
+        "cacheNameToChange": null
+    },
+    "actionCache": [
+        {
+            "name": "Longsword",
+            "level": null,
+            "category": "Equipable",
+            "activation": {
+                "type": "Attack",
+                "bonus": 5,
+                "dice": "1d8+3",
+                "damageType": "Slashing"
+            },
+            "description": "Melee weapon attack",
+            "resource": ""
+        },
+        {
+            "name": "Handaxe (Melee)",
+            "level": null,
+            "category": "Equipable",
+            "activation": {
+                "type": "Attack",
+                "bonus": 5,
+                "dice": "1d6+3",
+                "damageType": "Slashing"
+            },
+            "description": "Melee weapon attack",
+            "resource": ""
+        },
+        {
+            "name": "Handaxe (Thrown)",
+            "level": null,
+            "category": "Equipable",
+            "activation": {
+                "type": "Attack",
+                "bonus": 5,
+                "dice": "1d6+3",
+                "damageType": "Slashing"
+            },
+            "description": "Ranged weapon attack (20/60 ft)",
+            "resource": ""
+        },
+        {
+            "name": "Second Wind",
+            "level": null,
+            "category": "Feature",
+            "activation": {
+                "type": "Healing",
+                "bonus": 0,
+                "dice": "1d10+1",
+                "damageType": ""
+            },
+            "description": "Regain HP",
+            "resource": "Second Wind"
+        }
+    ]
+}
