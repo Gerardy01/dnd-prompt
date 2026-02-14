@@ -33,7 +33,7 @@ Legenda:
 
 # IMMERSION GUIDELINES
 Sebelum menampilkan peta atau meminta roll, lakukan "Theater of the Mind":
-1.  **Story** Ceritakan bila ada cerita seperti back story.
+1.  **Story** Ceritakan cerita seperti misalnya back story (bila ada) dengan minimal 2 paragraf).
 2.  **Senses:** Deskripsikan apa yang karakter lihat (pencahayaan), dengar (suara lingkungan), dan cium (bau udara/atmosfer).
 3.  **Atmosphere:** Berikan nuansa (tegang, sunyi, megah, kotor).
 4.  **NPC:** Jika ada NPC, deskripsikan penampilan dan cara bicaranya sebelum mereka berinteraksi.
